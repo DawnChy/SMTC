@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="personalPage" ng-controller="articleController as ctrl">
+        <h2 ng-bind="ctrl.info" name="username">昵称</h2>
+        <p ng-bind="ctrl.Email">邮箱</p>
+        <!-- <p>个人描述</p> -->
+    </div>
+    <div ng-controller="personalCTR as ctrl">
+        <div class="article" ng-repeat="x in ctrl.personalArticles" ng-init="outerIndex = $index">
+            <p><h2 class="article_head">
+                <a id="article_head" href="javascript:;" ng-bind="x.article_head" name="article_head"></a>
+            <span class="delete glyphicon glyphicon-trash" style="float:right" ng-click="ctrl.deleteArt(x.article_head)"></span></h2></p>
+            <hr>
+            <p class="article_info">
+                <span class="glyphicon glyphicon-user"></span>作者：
+                <b>\{{x.author}}</b>
+                发表于 <b>\{{x.article_info|date:'yyyy'+'-'+'MM'+'-'+'dd'+'-'+'HH:mm:ss'}}</b>
+                &nbsp;&nbsp;浏览&nbsp;<span class="badge" name="count" ng-bind="x.count"></span>
+                &nbsp;&nbsp;<span class="badge" name="like" ng-bind="x.like"></span>
+            </p>
+            <hr>
+            <div class="article_body">
+                <p ng-bind="x.article_body"></p>
+            </div>
+            <div id="" class="show_comment" ng-repeat="y in ctrl.personalArticlesComment[outerIndex]" ng-init="innerIndex = $index">
+                <p>
+                    <span id="Article" ng-bind="y.Article" style="display:none"></span>
+                    <span ng-bind="'评论：'+y.preson"></span>&nbsp;&nbsp;&nbsp;
+                    <span>\{{y.time|date:'yyyy'+'-'+'MM'+'-'+'dd'}}</span>
+                    <span class="delete glyphicon glyphicon-trash" style="float:right"></span>
+                </p>
+                <p ng-bind="y.content"></p>
+            </div>
+        </div>
+    </div>
+
+</div>

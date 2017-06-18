@@ -1,0 +1,24 @@
+.thumbnail{
+    overflow: hidden;
+}
+.thumbnail>img{
+    width: 340px;
+    height: 170px;
+    opacity: .8;
+}
+.thumbnail>img:hover{
+    transform: scale(1.2);
+    opacity: 1;
+    cursor: pointer;
+    transition: all 1s;
+}
+.jumbotron{
+    width: 800px;
+    height: 500px;
+    margin: 35px auto -150px;
+    color: white;
+    /*background:url(../images/Wait.gif);*/
+    background:url(../images/jump.gif);
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
